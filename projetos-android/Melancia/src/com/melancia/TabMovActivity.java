@@ -94,10 +94,10 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 	static CEditText edtQtdePecas;
 	static CEditText edtPesoMedio;
 	static CEditText edtPrecoEnt;
-	static CEditText edtTermCarg;
-	static CEditText edtCdCarg;
-	static CEditText edtNmCarg;
-	static ImageButton btnPesqCarg;
+	//static CEditText edtTermCarg;
+	//static CEditText edtCdCarg;
+	//static CEditText edtNmCarg;
+	//static ImageButton btnPesqCarg;
 	static CEditText edtVlMaoObra;
 	static CEditText edtVlDespPrdr;
 	static CEditText edtVlTotPrdr;
@@ -270,7 +270,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 									" inner join pub_pes dest" +
 									" on ent.cd_emp = dest.cd_emp" +
 									" and ent.cd_pes_dest = dest.cd_pes" +
-									" inner join pub_pes carg" +
+									" left join pub_pes carg" +
 									" on ent.cd_emp = carg.cd_emp" +
 									" and ent.cd_pes_carg = carg.cd_pes" +
 									" inner join pub_prod prod" +
@@ -656,6 +656,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 									runOnUiThread(new Runnable() {																	
 										
 										File pdfPath;
+										private static final int ITENS_POR_PAGINA = 10;
 										
 										@Override
 										public void run() {
@@ -701,7 +702,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 											        allitemsheight += childView.getMeasuredHeight();
 											        
 											        qtItens += 1;
-											        if(qtItens == 5 || i == (adapter.getCount() - 1)) {
+											        if(qtItens == ITENS_POR_PAGINA || i == (adapter.getCount() - 1)) {
 			
 														int totalHeight = rllHeader.getHeight() + allitemsheight + lnlPageNumber.getHeight();
 														
@@ -736,7 +737,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 															usedHeight += rllFooter.getHeight();
 														}
 			
-														txvPageNumber.setText("Página: " + Funcoes.formata(pageNumber, 2) + "/" + Funcoes.formata((int) Math.ceil(adapter.getCount() / 5.0), 2));
+														txvPageNumber.setText("Página: " + Funcoes.formata(pageNumber, 2) + "/" + Funcoes.formata((int) Math.ceil(adapter.getCount() / Float.valueOf(ITENS_POR_PAGINA)), 2));
 														
 														lnlPageNumber.measure(MeasureSpec.makeMeasureSpec(rllHeader.getWidth(), MeasureSpec.EXACTLY), 
 												                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
@@ -865,10 +866,10 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 		edtQtdePecas = (CEditText) vMovEnt.findViewById(R.id.edtQtPecas);
 		edtPesoMedio = (CEditText) vMovEnt.findViewById(R.id.edtPMedio);
 		edtPrecoEnt = (CEditText) vMovEnt.findViewById(R.id.edtPreco);
-		edtTermCarg = (CEditText) vMovEnt.findViewById(R.id.edtTermCarg);
-		edtCdCarg = (CEditText) vMovEnt.findViewById(R.id.edtCdCarg);
-		edtNmCarg = (CEditText) vMovEnt.findViewById(R.id.edtNmCarg);
-		btnPesqCarg = (ImageButton) vMovEnt.findViewById(R.id.btnPesqCarg);
+		//edtTermCarg = (CEditText) vMovEnt.findViewById(R.id.edtTermCarg);
+		//edtCdCarg = (CEditText) vMovEnt.findViewById(R.id.edtCdCarg);
+		//edtNmCarg = (CEditText) vMovEnt.findViewById(R.id.edtNmCarg);
+		//btnPesqCarg = (ImageButton) vMovEnt.findViewById(R.id.btnPesqCarg);
 		edtVlMaoObra = (CEditText) vMovEnt.findViewById(R.id.edtVlMaoObra);
 		edtVlDespPrdr = (CEditText) vMovEnt.findViewById(R.id.edtVlDespProdr);
 		edtVlTotPrdr = (CEditText) vMovEnt.findViewById(R.id.edtVlTotProdr);
@@ -1160,7 +1161,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 			@Override
 			public void onClick(View v) {
 				try{
-					final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+					final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 					
 					final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 					final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -1234,7 +1235,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 								}
 							})
 							.setNegativeButton("Cancelar", null)
-							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 					
 					Funcoes.setaFoco(edtPesq);
 					
@@ -1281,7 +1282,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 			@Override
 			public void onClick(View v) {
 				try{
-					final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+					final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 					
 					final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 					final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -1351,7 +1352,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 								}
 							})
 							.setNegativeButton("Cancelar", null)
-							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);;
+							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);;
 					
 					Funcoes.setaFoco(edtPesq);
 					
@@ -1428,6 +1429,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 			}
 		});
 		
+		/*
 		edtTermCarg.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 			
 			@Override
@@ -1492,7 +1494,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 			@Override
 			public void onClick(View v) {
 				try{
-					final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+					final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 					
 					final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 					final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -1566,7 +1568,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 								}
 							})
 							.setNegativeButton("Cancelar", null)
-							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);;
+							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);;
 					
 					Funcoes.setaFoco(edtPesq);
 					
@@ -1576,6 +1578,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 				
 			}
 		});
+		*/
 		
 		edtVlMaoObra.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			
@@ -1675,7 +1678,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 			@Override
 			public void onClick(View v) {
 				try{
-					final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+					final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 					
 					final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 					final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -1749,7 +1752,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 								}
 							})
 							.setNegativeButton("Cancelar", null)
-							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);;
+							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);;
 					
 					Funcoes.setaFoco(edtPesq);
 					
@@ -1807,7 +1810,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 			@Override
 			public void onClick(View v) {
 				try{
-					final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+					final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 					
 					final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 					final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -2396,7 +2399,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 						@Override
 						public void onClick(View v) {
 							try{
-								final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+								final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 								
 								final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 								final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -2471,7 +2474,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 											}
 										})
 										.setNegativeButton("Cancelar", null)
-										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);;
+										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);;
 								
 							}catch(Exception e){
 								Funcoes.msgBox("Falha ao realizar pesquisa." + e.getMessage(), TabMovActivity.this);
@@ -2640,7 +2643,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 					})
 					.setNegativeButton("Cancelar", null)
 					.show()
-					.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+					.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 					
 				}catch(Exception e){
 					Funcoes.msgBox(e.getMessage(), TabMovActivity.this);
@@ -2891,7 +2894,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 						@Override
 						public void onClick(View v) {
 							try{
-								final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+								final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 								
 								final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 								final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -2966,7 +2969,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 											}
 										})
 										.setNegativeButton("Cancelar", null)
-										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 								
 								Funcoes.setaFoco(edtPesq);
 								
@@ -3058,7 +3061,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 						@Override
 						public void onClick(View v) {
 							try{
-								final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+								final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 								
 								final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 								final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -3133,7 +3136,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 											}
 										})
 										.setNegativeButton("Cancelar", null)
-										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 								
 								Funcoes.setaFoco(edtPesq);
 								
@@ -3225,7 +3228,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 						@Override
 						public void onClick(View v) {
 							try{
-								final View vPesq = ((LayoutInflater) TabMovActivity.this.getSystemService(Service.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.dialog_pesquisa, null, false);
+								final View vPesq = TabMovActivity.this.getLayoutInflater().inflate(R.layout.dialog_pesquisa, null);
 								
 								final Spinner spnFiltro = (Spinner) vPesq.findViewById(R.id.spnFiltro);
 								final EditText edtPesq = (EditText) vPesq.findViewById(R.id.edtPesq);
@@ -3300,7 +3303,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 											}
 										})
 										.setNegativeButton("Cancelar", null)
-										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+										.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 								
 								Funcoes.setaFoco(edtPesq);
 								
@@ -3376,7 +3379,7 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 												" inner join pub_pes dest" +
 												" on ent.cd_emp = dest.cd_emp" +
 												" and ent.cd_pes_dest = dest.cd_pes" +
-												" inner join pub_pes carg" +
+												" left join pub_pes carg" +
 												" on ent.cd_emp = carg.cd_emp" +
 												" and ent.cd_pes_carg = carg.cd_pes" +
 												" inner join pub_prod prod" +
@@ -4152,9 +4155,9 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 		edtQtdePecas.setText(Funcoes.formata(0, 6));
 		edtPesoMedio.setText(Funcoes.decimal(0, 3));
 		edtPrecoEnt.setText(Funcoes.decimal(0, 2));
-		edtTermCarg.setText("");
-		edtCdCarg.setText("");
-		edtNmCarg.setText("");
+		//edtTermCarg.setText("");
+		//edtCdCarg.setText("");
+		//edtNmCarg.setText("");
 		edtVlMaoObra.setText(Funcoes.decimal(0, 2));
 		edtVlDespPrdr.setText(Funcoes.decimal(0, 2));
 		edtVlTotPrdr.setText(Funcoes.decimal(0, 2));
@@ -4313,11 +4316,11 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 						edtPesoMedio.setText(Funcoes.decimal(rsTmp.getDouble(rsTmp.getColumnIndex("peso_bruto_prod")) / rsTmp.getInt(rsTmp.getColumnIndex("qtde_pecas")), 3));
 						edtPrecoEnt.setText(Funcoes.decimal(rsTmp.getDouble(rsTmp.getColumnIndex("preco_comp")), 4));
 						
-						if (rsTmp.getInt(rsTmp.getColumnIndex("cd_pes_carg")) > 0){
+						/*if (rsTmp.getInt(rsTmp.getColumnIndex("cd_pes_carg")) > 0){
 							edtTermCarg.setText(Funcoes.formata(rsTmp.getInt(rsTmp.getColumnIndex("cd_pes_carg")), 6).substring(0, 2));
 							edtCdCarg.setText(Funcoes.formata(rsTmp.getInt(rsTmp.getColumnIndex("cd_pes_carg")), 6).substring(2));
 							edtNmCarg.setText(rsTmp.getString(rsTmp.getColumnIndex("nm_carg")));
-						}
+						}*/
 						
 						edtVlMaoObra.setText(Funcoes.decimal(rsTmp.getDouble(rsTmp.getColumnIndex("vl_mao_obra")), 2));
 						edtVlDespPrdr.setText(Funcoes.decimal(rsTmp.getDouble(rsTmp.getColumnIndex("vl_out_desp")), 2));
@@ -4512,8 +4515,8 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 									}	
 									
 									String cdCarg = "null";
-									if(Funcoes.toInt(edtTermCarg.getString()) > 0 && Funcoes.toInt(edtCdCarg.getString()) > 0 && !edtNmCarg.getText().equals(""))
-										cdCarg = Funcoes.toInt(edtTermCarg.getString() + edtCdCarg.getString()).toString();
+									//if(Funcoes.toInt(edtTermCarg.getString()) > 0 && Funcoes.toInt(edtCdCarg.getString()) > 0 && !edtNmCarg.getText().equals(""))
+									//	cdCarg = Funcoes.toInt(edtTermCarg.getString() + edtCdCarg.getString()).toString();
 									
 									String[] vetCampos = new String[]{"CD_EMP", "CD_ENT", "CD_PES_PRDT", "DT_ENT", "CD_PROD",
 					                        "PESO_BRUTO_PROD", "PERC_PALHA", "PESO_DESCARTE", "PRECO_COMP", "PRECO_VEND",
@@ -4610,8 +4613,8 @@ public class TabMovActivity extends FragmentActivity implements ActionBar.TabLis
 									}
 									
 									String cdCarg = "null";
-									if(Funcoes.toInt(edtTermCarg.getString()) > 0 && Funcoes.toInt(edtCdCarg.getString()) > 0 && !edtNmCarg.getText().equals(""))
-										cdCarg = Funcoes.toInt(edtTermCarg.getString() + edtCdCarg.getString()).toString();
+									//if(Funcoes.toInt(edtTermCarg.getString()) > 0 && Funcoes.toInt(edtCdCarg.getString()) > 0 && !edtNmCarg.getText().equals(""))
+									//	cdCarg = Funcoes.toInt(edtTermCarg.getString() + edtCdCarg.getString()).toString();
 											
 									String[] vetCampos = new String[]{"CD_PES_PRDT", "DT_ENT", "CD_PROD",
 					                        "PESO_BRUTO_PROD", "PERC_PALHA", "PESO_DESCARTE", "PRECO_COMP", "PRECO_VEND",

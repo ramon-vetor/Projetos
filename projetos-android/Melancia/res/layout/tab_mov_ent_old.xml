@@ -332,21 +332,81 @@
 
         <com.melancia.controles.CEditText
             android:id="@+id/edtPreco"
-            style="@style/EdtValor"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/txvDsProd"
-            android:layout_toRightOf="@+id/edtPMedio"
+            style="@style/EdtValor"
+            android:nextFocusForward="@+id/edtTermCarg"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtQtPecas"
+            android:layout_marginTop="5dp"
+            android:text="Cargueiro"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtTermCarg"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView14"
             android:ems="10"
-            android:nextFocusForward="@+id/edtTermCarg" />
+            android:text="00"
+            android:maxLength="2"
+            style="@style/EdtCodigo" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtCdCarg"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/edtTermCarg"
+            android:layout_toRightOf="@+id/edtTermCarg"
+            android:ems="10"
+            android:text="0000"
+            android:maxLength="4"
+            style="@style/EdtCodigo"
+            android:nextFocusForward="@+id/edtVlMaoObra"/>
+
+        <TextView
+            android:id="@+id/txvPesoBruto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtCdCarg"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/edtCdCarg"
+            android:text="Nome"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtNmCarg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvPesoBruto"
+            android:layout_alignRight="@+id/edtDsProd"
+            android:layout_below="@+id/txvPesoBruto"
+            style="@style/EdtDescricao"
+            android:ems="10" />
+
+        <ImageButton
+            android:id="@+id/btnPesqCarg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/edtNmCarg"
+            android:layout_alignRight="@+id/edtPreco"
+            android:src="@android:drawable/ic_menu_search" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/edtQtPecas"
+            android:layout_below="@+id/edtTermCarg"
             android:layout_marginTop="5dp"
             android:text="Mão de Obra"
             style="@style/TxvLabelSmall" />
@@ -395,9 +455,9 @@
             style="@style/EdtValorLk"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtPreco"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/textView18"
-            android:layout_toRightOf="@+id/txvPercPalha"
             android:ems="10" />
 
         <TextView

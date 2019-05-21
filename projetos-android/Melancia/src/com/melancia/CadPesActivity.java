@@ -455,7 +455,7 @@ public class CadPesActivity extends Activity {
 								}
 							})
 							.setNegativeButton("Cancelar", null)
-							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+							.show().getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 					
 					Funcoes.setaFoco(edtPesq);
 					
