@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<item
+    android:id="@android:drawable/ic_menu_mapmode"
+    android:title="teste3"
+    android:orderInCategory="200"
+    android:showAsAction="always"/>
+
+<item
+    android:id="@+id/action_overflow"
+     android:title="mais"
+    android:menuCategory="container"
+    android:orderInCategory="400"
+    android:showAsAction="always"
+    android:visible="true">
+    <menu>
+        <item
+            android:id="@+id/action_refresh"
+            android:title="teste"
+            android:menuCategory="container"
+            android:orderInCategory="100"
+            android:showAsAction="always"
+            android:visible="true"/>
+        <item
+            android:id="@+id/action_search"
+            android:title="teste2"
+            android:menuCategory="container"
+            android:orderInCategory="200"
+            android:showAsAction="always"
+            android:visible="true"/>
+
+    </menu>
+</item>
+
+</menu>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/lblFiltro"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Filtrar por..." />
+
+    <Spinner
+        android:id="@+id/spnFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:clickable="false"
+        tools:listitem="@android:layout/simple_spinner_item" />
+
+    <EditText
+        android:id="@+id/edtPesq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone"
+        android:inputType="textCapCharacters"
+        android:singleLine="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/lstResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:choiceMode="singleChoice"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            tools:listitem="@layout/adapter_list_pesquisa" >
+        </ListView>
+    </RelativeLayout>
+
+</LinearLayout>

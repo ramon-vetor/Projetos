@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/txvNmEmp"
+            style="@style/TxvLabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:text="Data Inicial" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TxvLabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.35"
+            android:text="Data Final" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/TxvLabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.3"
+            android:text="Tipo data" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtDtIni"
+            style="@style/EdtData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:ems="10" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtDtFin"
+            style="@style/EdtData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.35"
+            android:ems="10" />
+
+        <Spinner
+            android:id="@+id/spnTpDt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.3"
+            android:entries="@array/tp_dt_pesq"
+            tools:listitem="@android:layout/simple_spinner_item" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical" >
+
+        <CheckBox
+            android:id="@+id/chkTodasPes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:text="Todas as pessoas"
+            android:textColor="@android:color/holo_blue_light"
+            android:checked="true"
+            android:nextFocusForward="@+id/edtTermPes" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.07"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txvCdEnt"
+                style="@style/TxvLabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo" />
+
+            <Spinner
+                android:id="@+id/spnTpPes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/tp_pes_pesq"
+                tools:listitem="@android:layout/simple_spinner_item" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/TxvLabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Código" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtTermPes"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView5"
+            style="@style/EdtCodigo"
+            android:ems="10"
+            android:text="00"
+            android:enabled="false" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtCdPes"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtTermPes"
+            android:layout_alignBottom="@+id/edtTermPes"
+            android:layout_toRightOf="@+id/edtTermPes"
+            style="@style/EdtCodigo"
+            android:ems="10"
+            android:text="0000"
+            android:enabled="false"
+            android:imeOptions="actionDone" >
+        </com.melancia.controles.CEditText>
+
+        <TextView
+            android:id="@+id/txvDtEnt"
+            style="@style/TxvLabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/edtCdPes"
+            android:text="Nome" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtNmPes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtCdPes"
+            android:layout_alignBottom="@+id/edtCdPes"
+            android:layout_alignLeft="@+id/txvDtEnt"
+            android:layout_toLeftOf="@+id/btnPesqPes"
+            style="@style/EdtDescricao"
+            android:ems="10" />
+
+        <ImageButton
+            android:id="@+id/btnPesqEnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/edtNmPes"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_more"
+            android:contentDescription="Pesquisar pessoas"/>
+
+        <ImageButton
+            android:id="@+id/btnPesqPes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/btnPesqEnt"
+            android:layout_toLeftOf="@+id/btnPesqEnt"
+            android:src="@android:drawable/ic_menu_search"
+            android:contentDescription="Pesquisar movimentações" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/TxvLabelSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center|center"
+        android:textColor="#026395"
+        android:padding="1dp"
+        android:text="Entradas" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#026395"
+        android:padding="2dp" >
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.12"
+            android:text="Pedido"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/txvDsPes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.45"
+            android:text="Cliente"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/txvNmDest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.20"
+            android:text="Emissão"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.23"
+            android:text="Vl. Total"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/lstPedidos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:choiceMode="singleChoice"
+            tools:listitem="@layout/adapter_pesq_ent" >
+        </ListView>
+    </RelativeLayout>
+
+</LinearLayout>

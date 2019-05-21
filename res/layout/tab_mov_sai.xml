@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/txvNmEmp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Destinatário"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtTermDest"
+            style="@style/EdtCodigo"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txvNmEmp"
+			android:text="00"
+			android:maxLength="2"
+            android:ems="10" >
+        </com.melancia.controles.CEditText>
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtCdDest"
+            style="@style/EdtCodigo"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txvNmEmp"
+            android:layout_toRightOf="@+id/edtTermDest"
+            android:text="0000"
+			android:maxLength="4"
+			android:nextFocusForward="@+id/edtDtEntrega"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/edtCdDest"
+            android:text="Nome"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtNmDest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtTermDest"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_below="@+id/textView2"
+            android:layout_marginRight="5dp"
+            style="@style/EdtDescricao"
+            android:layout_toLeftOf="@+id/btnPesqDest" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtTermDest"
+            android:layout_marginTop="10dp"
+            android:text="Dt. Entrega"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtDtEntrega"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView3"
+            android:ems="10"
+            style="@style/EdtData"
+            android:text="31/12/9999" />
+
+        <TextView
+            android:id="@+id/txvCdEnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtDtEntrega"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/edtDtEntrega"
+            android:text="Motorista"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtNmMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvCdEnt"
+            android:layout_alignRight="@+id/edtNmDest"
+            android:layout_below="@+id/txvCdEnt"
+            android:nextFocusForward="@+id/edtFoneMotor"
+            style="@style/EdtTexto"/>
+        
+
+        <ImageButton
+            android:id="@+id/btnPesqMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/edtNmMotor"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_search" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtDtEntrega"
+            android:layout_marginTop="10dp"
+            android:text="Telefone"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtFoneMotor"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView5"
+            android:ems="10"
+            android:text="(00)0000-0000"
+            android:maxLength="15"
+            style="@style/EdtCodigo" />
+
+        <TextView
+            android:id="@+id/txvDtEnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtFoneMotor"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/edtFoneMotor"
+            android:text="CPF/CNPJ"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtCpfCgcMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvDtEnt"
+            android:layout_below="@+id/txvDtEnt"
+            android:ems="10"
+            android:text="00.000.000/0000-00"
+            android:nextFocusForward="@+id/edtPlacaMotor"
+            style="@style/EdtCodigo" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtFoneMotor"
+            android:layout_marginTop="10dp"
+            android:text="Placa"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtPlacaMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView7"
+            android:layout_toLeftOf="@+id/edtIcmsFrete"
+            android:ems="10"
+            android:singleLine="true"
+            android:text="ABC - 1234"
+            style="@style/EdtTexto"
+            android:maxLength="10"
+            />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtPlacaMotor"
+            android:layout_toRightOf="@+id/edtPlacaMotor"
+            android:layout_marginLeft="5dp"
+            android:text="UF"
+            style="@style/TxvLabelSmall" />
+
+        <TextView
+            android:id="@+id/txvNmPrdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_toRightOf="@+id/spnUfPlaca"
+            android:layout_marginLeft="5dp"
+            android:text="Cidade"
+            style="@style/TxvLabelSmall" />
+
+        <TextView
+            android:id="@+id/txvNmDest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtPlacaMotor"
+            android:layout_marginTop="10dp"
+            android:text="Frete por Tn."
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtVlFrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txvNmDest"
+            android:layout_toLeftOf="@+id/edtNmMotor"
+            style="@style/EdtValor"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtVlFrete"
+            android:layout_toRightOf="@+id/edtVlFrete"
+            android:layout_marginLeft="5dp"
+            android:text="ICMS Frete"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtIcmsFrete"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView11"
+            android:layout_below="@+id/textView11"
+            style="@style/EdtValor"
+            android:ems="10" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtVlTotFrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView12"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView12"
+            style="@style/EdtValorLk"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/txvDsProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtVlFrete"
+            android:text="Prc. Venda"
+            android:layout_marginTop="10dp"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtPrcVenda"
+            style="@style/EdtValor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/txvNmDest"
+            android:layout_below="@+id/txvDsProd"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/edtPrcVenda"
+            android:layout_alignLeft="@+id/edtVlTotFrete"
+            android:text="Vl. Total"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtVlTotVenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView14"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView14"
+            style="@style/EdtValorLk"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/txvPesoBruto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/spnTpFrete"
+            android:layout_marginTop="10dp"
+            android:text="Observação"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtObsSai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txvPesoBruto"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:maxLines="3" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/edtObsSai"
+            android:layout_marginTop="10dp"
+            android:text="Situação"
+            style="@style/TxvLabelSmall" />
+
+        <TextView
+            android:id="@+id/txvPercPalha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView16"
+            android:layout_alignBottom="@+id/textView16"
+            android:layout_alignLeft="@+id/edtVlTotVenda"
+            android:text="Vl. Recebido"
+            style="@style/TxvLabelSmall" />
+
+        <com.melancia.controles.CEditText
+            android:id="@+id/edtVlRecSai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txvPercPalha"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/txvPercPalha"
+            style="@style/EdtValor"
+            android:imeOptions="actionDone"
+            android:ems="10" />
+
+        <Spinner
+            android:id="@+id/spnStSai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtVlRecSai"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/edtIcmsFrete"
+            android:layout_below="@+id/textView16"
+            tools:listitem="@android:layout/simple_spinner_item"
+            android:entries="@array/st_sai" />
+
+        <ImageButton
+            android:id="@+id/btnPesqDest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView3"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_search" />
+
+        <Spinner
+            android:id="@+id/spnUfPlaca"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/edtPlacaMotor"
+            android:layout_below="@+id/textView8"
+            android:layout_alignLeft="@+id/textView8"
+            tools:listitem="@android:layout/simple_spinner_item"
+            android:entries="@array/uf_cid" />
+
+        <Spinner
+            android:id="@+id/spnCidPlaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/spnUfPlaca"
+            android:layout_alignLeft="@+id/txvNmPrdt"
+            android:layout_below="@+id/txvNmPrdt"
+            android:layout_alignBaseline="@id/edtPlacaMotor"
+            android:layout_alignParentRight="true"
+            tools:listitem="@android:layout/simple_spinner_item" />
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/TxvLabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_toRightOf="@+id/edtIcmsFrete"
+            android:text="Vl. Total Frete" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/TxvLabelSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtPrcVenda"
+            android:layout_alignLeft="@+id/edtPrcVenda"
+            android:layout_marginTop="10dp"
+            android:text="Frete por Conta" />        
+
+        <Spinner
+            android:id="@+id/spnTpFrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_alignRight="@+id/edtVlFrete"
+            android:layout_below="@+id/textView1"
+            android:entries="@array/tp_frete"
+            tools:listitem="@android:layout/simple_spinner_item" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_toRightOf="@+id/spnTpFrete"
+            android:text="ICMS por Conta"
+            android:layout_marginLeft="5dp"
+            style="@style/TxvLabelSmall"/>
+
+        <Spinner
+            android:id="@+id/spnTPICMS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/spnTpFrete"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignRight="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:entries="@array/tp_frete"
+            tools:listitem="@android:layout/simple_spinner_item" />
+
+        <CheckBox
+            android:id="@+id/chkNotaFiscal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/spnTPICMS"
+            android:layout_alignBaseline="@+id/spnTPICMS"
+            android:layout_alignBottom="@+id/spnTPICMS"
+            android:text="Nota Fiscal" />
+
+    </RelativeLayout>
+
+</ScrollView>

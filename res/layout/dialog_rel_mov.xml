@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Data Inicial"
+        style="@style/TxvLabelSmall"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtDtIni"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:text="31/12/2014"
+        style="@style/EdtData" >
+    </com.melancia.controles.CEditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/edtDtIni"
+        android:text="Data Final"
+        style="@style/TxvLabelSmall"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtDtFin"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtDtIni"
+        android:layout_alignBottom="@+id/edtDtIni"
+        android:layout_alignLeft="@+id/textView2"
+        android:ems="10"
+        android:text="31/12/2014"
+        style="@style/EdtData" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/edtDtFin"
+        android:text="Situação"
+        style="@style/TxvLabelSmall"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Spinner
+        android:id="@+id/spnStEntSai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtDtFin"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView3"
+        android:entries="@array/st_rel_mov"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <CheckBox
+        android:id="@+id/chkTdPlacas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edtDtIni"
+        android:text="Todas as Placas"
+        android:checked="true" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtPlaca"
+        style="@style/EdtTexto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/chkTdPlacas"
+        android:layout_below="@+id/chkTdPlacas"
+        android:enabled="false"
+        android:singleLine="true"
+        android:gravity="center"
+        android:text="ABC - 1234" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/chkTdPlacas"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/edtPlaca"
+        android:text="Exibir Preço"
+        style="@style/TxvLabelSmall"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Spinner
+        android:id="@+id/spnPrcExib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtPlaca"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:entries="@array/prc_exib_rel_mov"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <CheckBox
+        android:id="@+id/chkTdPrdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edtPlaca"
+        android:text="Todos os Produtores"
+        android:checked="true" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/chkTdPrdt"
+        android:text="Código" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtTermPrdt"
+        style="@style/EdtCodigo"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5"
+        android:ems="10"
+        android:enabled="false"
+        android:text="00" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtCdPrdt"
+        style="@style/EdtCodigo"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtTermPrdt"
+        android:layout_alignBottom="@+id/edtTermPrdt"
+        android:layout_toRightOf="@+id/edtTermPrdt"
+        android:ems="10"
+        android:enabled="false"
+        android:imeOptions="actionDone"
+        android:text="0000" >
+    </com.melancia.controles.CEditText>
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtNmPrdt"
+        style="@style/EdtDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtCdPrdt"
+        android:layout_alignBottom="@+id/edtCdPrdt"
+        android:layout_alignLeft="@+id/txvDtEnt"
+        android:layout_toLeftOf="@+id/btnPesqPrdt"
+        android:ems="10" />
+
+    <ImageButton
+        android:id="@+id/btnPesqPrdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edtNmPrdt"
+        android:layout_alignParentRight="true"
+        android:contentDescription="Pesquisar pessoas"
+        android:src="@android:drawable/ic_menu_search" />
+
+    <CheckBox
+        android:id="@+id/chkTdDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edtTermPrdt"
+        android:text="Todos os Destinatários"
+        android:checked="true" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/chkTdDest"
+        android:text="Código" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtTermDest"
+        style="@style/EdtCodigo"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView01"
+        android:ems="10"
+        android:enabled="false"
+        android:text="00" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtCdDest"
+        style="@style/EdtCodigo"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtTermDest"
+        android:layout_alignBottom="@+id/edtTermDest"
+        android:layout_toRightOf="@+id/TextView01"
+        android:ems="10"
+        android:enabled="false"
+        android:imeOptions="actionDone"
+        android:text="0000" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtNmDest"
+        style="@style/EdtDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtCdDest"
+        android:layout_alignBottom="@+id/edtCdDest"
+        android:layout_toLeftOf="@+id/btnPesqDest"
+        android:layout_toRightOf="@+id/edtCdDest"
+        android:ems="10" />
+
+    <ImageButton
+        android:id="@+id/btnPesqDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edtNmDest"
+        android:layout_alignParentRight="true"
+        android:contentDescription="Pesquisar pessoas"
+        android:src="@android:drawable/ic_menu_search" />
+
+    <CheckBox
+        android:id="@+id/chkTdCarg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edtTermDest"
+        android:text="Todos os Cargueiros"
+        android:checked="true" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/chkTdCarg"
+        android:text="Código" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtTermCarg"
+        style="@style/EdtCodigo"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView02"
+        android:ems="10"
+        android:enabled="false"
+        android:text="00" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtCdCarg"
+        style="@style/EdtCodigo"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtTermCarg"
+        android:layout_alignBottom="@+id/edtTermCarg"
+        android:layout_toRightOf="@+id/TextView02"
+        android:ems="10"
+        android:enabled="false"
+        android:imeOptions="actionDone"
+        android:text="0000" />
+
+    <com.melancia.controles.CEditText
+        android:id="@+id/edtNmCarg"
+        style="@style/EdtDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtCdCarg"
+        android:layout_alignBottom="@+id/edtCdCarg"
+        android:layout_toLeftOf="@+id/btnPesqCarg"
+        android:layout_toRightOf="@+id/edtCdCarg"
+        android:ems="10" />
+
+    <ImageButton
+        android:id="@+id/btnPesqCarg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edtNmCarg"
+        android:layout_alignParentRight="true"
+        android:contentDescription="Pesquisar pessoas"
+        android:src="@android:drawable/ic_menu_search" />
+
+    <TextView
+        android:id="@+id/txvDtEnt"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_below="@+id/chkTdPrdt"
+        android:layout_toRightOf="@+id/edtCdPrdt"
+        android:text="Nome" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_toRightOf="@+id/edtCdDest"
+        android:text="Nome" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        style="@style/TxvLabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TextView02"
+        android:layout_toRightOf="@+id/edtCdCarg"
+        android:text="Nome" />
+
+</RelativeLayout>

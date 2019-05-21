@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/txvDtEnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conexão"
+        style="@style/TxvLabelSmall" />
+
+    <Spinner
+        android:id="@+id/spnConexao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+    <TextView
+        android:id="@+id/txvNmEmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome Servidor"
+        android:layout_marginTop="2dp"
+        style="@style/TxvLabelSmall" />
+
+    <EditText
+        android:id="@+id/edtNmServidor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EdtTextoMinusculo"
+        android:ems="10" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Banco de Dados"
+        android:layout_marginTop="2dp"
+        style="@style/TxvLabelSmall" />
+
+    <EditText
+        android:id="@+id/edtNmBanco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nextFocusForward="@+id/edtNmUsuario"
+        style="@style/EdtTextoMinusculo"
+        android:ems="10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Usuário"
+            style="@style/TxvLabelSmall" />
+
+        <TextView
+            android:id="@+id/txvCdEnt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="5dp"
+            android:text="Senha"
+            style="@style/TxvLabelSmall" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/edtNmUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/EdtTextoMinusculo"
+            android:ems="10" />
+
+        <EditText
+            android:id="@+id/edtSenha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="5dp"
+            style="@style/EdtTextoMinusculo"
+            android:inputType="textPassword"
+            android:ems="10" />
+        
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome da Conexão"
+        android:layout_marginTop="2dp"
+        style="@style/TxvLabelSmall" />
+
+    <EditText
+        android:id="@+id/edtNmConexao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EdtTexto"
+        android:nextFocusForward="@+id/edtObsPadrao"
+        android:ems="10" />
+    
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Observação Padrão"
+        android:layout_marginTop="2dp"
+        style="@style/TxvLabelSmall" />
+
+    <EditText
+        android:id="@+id/edtObsPadrao"
+        style="@style/EdtTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:maxLines="3" />
+
+</LinearLayout>

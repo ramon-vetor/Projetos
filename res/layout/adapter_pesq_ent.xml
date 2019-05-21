@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="5dp"
+    android:descendantFocusability="blocksDescendants">
+
+    <RadioButton
+        android:id="@+id/rdbMarcado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:singleLine="true"
+        android:textSize="0sp"
+        android:clickable="false"
+        android:focusable="false"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/rdbMarcado" >
+
+        <TextView
+            android:id="@+id/txvCdPedido"
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:text="000000"
+            style="@style/TxvLabelSmall"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txvNmCliente"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:text="Nome do cliente"
+            style="@style/TxvLabelSmall"
+            android:layout_marginLeft="2dp"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txvDtEmissao"
+            android:layout_width="0dp"
+            android:layout_weight="0.20"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:text="01/01/2014"
+            style="@style/TxvLabelSmall"
+            android:layout_marginLeft="2dp"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txvVlTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="0.20"
+            android:singleLine="true"
+            android:text="99.9999,99"
+            style="@style/TxvLabelSmall"
+            android:textSize="10sp"
+            android:gravity="center_vertical|right"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

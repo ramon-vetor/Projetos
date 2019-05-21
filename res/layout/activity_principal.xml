@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo"
+    android:gravity="center|center"
+    android:orientation="vertical"
+    android:padding="20dp" >
+
+    <Button
+        android:id="@+id/btnMov"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_shopping_cart_white_24dp"
+        android:text="Compra/Venda"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="20dp"
+        android:background="@drawable/btn_default_holo_dark"
+        android:padding="20dp"/>
+
+    <Button
+        android:id="@+id/btnCadPes"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_person_white_24dp"
+        android:text="Cadastro de Pessoas"
+		android:gravity="left|center_vertical"
+		android:drawablePadding="20dp"
+		android:background="@drawable/btn_default_holo_dark"
+        android:padding="20dp"/>
+
+    <Button
+        android:id="@+id/btnDespRec"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_attach_money_white_24dp"
+        android:text="Despesas/Receitas"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="20dp"
+        android:background="@drawable/btn_default_holo_dark"
+        android:padding="20dp"/>
+    
+    <Button
+        android:id="@+id/btnSincrBD"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:drawableLeft="@drawable/ic_autorenew_white_24dp"
+        android:text="Sincronizar Dados"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="20dp"
+        android:background="@drawable/btn_default_holo_dark"
+        android:padding="20dp"/>
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">Melancia Sys</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="st_ent">
+        <item>Pago</item>
+        <item>Não Pago</item>
+    </string-array>
+    <string-array name="st_sai">
+        <item>Recebida</item>
+        <item>Não Recebida</item>
+    </string-array>
+    <string-array name="tp_frete">
+        <item>Empresa</item>
+        <item>Cliente</item>
+    </string-array>
+    <string-array name="st_rel_mov">
+        <item>Todos</item>
+        <item>Pago</item>
+        <item>Não Pago</item>
+        <item>Recebido</item>
+        <item>Não Recebido</item>
+    </string-array>
+    <string-array name="prc_exib_rel_mov">
+        <item>Todos</item>
+        <item>Compra</item>
+        <item>Venda</item>
+    </string-array>
+    <string-array name="st_ent_pesq">
+        <item>Pago</item>
+        <item>Não Pago</item>
+        <item>Todos</item>
+    </string-array>
+    <string-array name="tp_dt_pesq">
+        <item>Digitação</item>
+        <item>Entrada</item>
+        <item>Saida</item>
+    </string-array>
+    <string-array name="tp_pes_pesq">
+        <item>Produtor</item>
+        <item>Destinatário</item>
+    </string-array>
+    <string-array name="tp_lanc">
+        <item>Despesa</item>
+        <item>Receita</item>
+    </string-array>
+    <string-array name="tp_lanc_rel">
+        <item>Despesa</item>
+        <item>Receita</item>
+        <item>Ambos</item>
+    </string-array>
+    <string-array name="uf_cid">
+        <item>--</item>
+        <item>AC</item>
+        <item>AL</item>
+        <item>AM</item>
+        <item>AP</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>EX</item>
+        <item>FN</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MG</item>
+        <item>MS</item>
+        <item>MT</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>PR</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>RS</item>
+        <item>SC</item>
+        <item>SE</item>
+        <item>SP</item>
+        <item>TO</item>
+    </string-array>
+</resources>
