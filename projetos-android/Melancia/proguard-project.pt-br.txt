@@ -1,0 +1,20 @@
+# Para ativar o ProGuard em seu projeto, edite project.properties
+# para definir a propriedade proguard.config conforme descrito nesse arquivo.
+#
+# Adicione regras ProGuard específicas do projeto aqui.
+# Por padrão, os sinalizadores neste arquivo são anexados aos sinalizadores especificados
+# em $ {sdk.dir} /tools/proguard/proguard-android.txt
+# Você pode editar o caminho e a ordem de inclusão alterando o ProGuard
+# include propriedade em project.properties.
+#
+# Para mais detalhes, consulte
+# http://developer.android.com/guide/developing/tools/proguard.html
+
+# Adicione aqui qualquer opção de manutenção específica do projeto:
+
+# Se o seu projeto usa o WebView com JS, remova o comentário do seguinte
+# e especifique o nome completo da classe para a interface JavaScript
+# classe:
+# -keepclassmembers class fqcn.of.javascript.interface.for.webview {
+# public *;
+#}
